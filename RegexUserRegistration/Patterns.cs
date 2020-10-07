@@ -9,7 +9,9 @@ namespace RegexUserRegistration
     {
         string Name = "^[A-Z][a-z0-9A-Z]{3,}";
         string EmailId = "^[a-z0-9A-Z]+([._+-][a-z0-9A-Z]+)*[@][a-z0-9A-Z]+[.][a-zA-Z]{2,3}(.[a-zA-Z]{2,})?$";
-        string mobileNo = "[0-9]{1,3}[ ][1-9]{1}[0-9]{9}";
+        string mobileNo = "^[0-9]{1,3}[ ][1-9]{1}[0-9]{9}$";
+        string Password = "^(?=.*[a-zA-Z]+.*)[a-zA-Z]{7,}$";
+
         public void validateName(string name)
         {
             if (Regex.IsMatch(name, Name))
@@ -41,6 +43,16 @@ namespace RegexUserRegistration
             else
             {
                 Console.WriteLine("mobile number not valid");
+            }
+        }public void validatePassword(string pw)
+        {
+            if (Regex.IsMatch(pw, Password))
+            {
+                Console.WriteLine("Password is valid");
+            }
+            else
+            {
+                Console.WriteLine("Password not valid");
             }
         }
     }
