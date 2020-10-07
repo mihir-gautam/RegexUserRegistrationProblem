@@ -20,9 +20,6 @@ namespace RegexUserRegistration
             Console.WriteLine("Enter the the mobile num with country code");
             string mob = Console.ReadLine();
             pattern.validateMobile(mob);
-            Console.WriteLine("Enter the password (should contain 8 or more characters)");
-            string password = Console.ReadLine();
-            pattern.validatePassword(password);
         }
     }
 }
