@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
+using UserRegistration;
 
 namespace RegexUserRegistration
 {
@@ -14,54 +15,99 @@ namespace RegexUserRegistration
 
         public string ValidateName(string name)
         {
-            if (Regex.IsMatch(name, Name))
+            try
             {
-                Console.WriteLine("Name is valid");
-                return "Valid";
+                if (name.Equals(string.Empty))
+                {
+                    throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_INPUT, "Name should not be empty");
+                }
+                else if (Regex.IsMatch(name, Name))
+                {
+                    Console.WriteLine("Name is valid");
+                    return "Valid";
+                }
+                else
+                {
+                    Console.WriteLine("Name not valid");
+                    return "Invalid";
+                }
             }
-            else
+            catch (NullReferenceException)
             {
-                Console.WriteLine("Name not valid");
-                return "Invalid";
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.NULL_INPUT, "Name should not be null");
             }
         }
         public string ValidateEmail(string email)
         {
-            if (Regex.IsMatch(email, EmailId))
+            try
             {
-                Console.WriteLine("Email id is valid");
-                return "Valid";
+                if (email.Equals(string.Empty))
+                {
+                    throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_INPUT, "Email should not be empty");
+                }
+                if (Regex.IsMatch(email, EmailId))
+                {
+                    Console.WriteLine("Email id is valid");
+                    return "Valid";
+                }
+                else
+                {
+                    Console.WriteLine("Email id not valid");
+                    return "Invalid";
+                }
             }
-            else
+            catch (NullReferenceException)
             {
-                Console.WriteLine("Email id not valid");
-                return "Invalid";
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.NULL_INPUT, "Email should not be null");
             }
         }
         public string ValidateMobile(string mobile)
         {
-            if (Regex.IsMatch(mobile, mobileNo))
+            try
             {
-                Console.WriteLine("mobile number is valid");
-                return "Valid";
+                if (mobile.Equals(string.Empty))
+                {
+                    throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_INPUT, "Mobile Number should not be empty");
+                }
+                if (Regex.IsMatch(mobile, mobileNo))
+                {
+                    Console.WriteLine("mobile number is valid");
+                    return "Valid";
+                }
+                else
+                {
+                    Console.WriteLine("mobile number not valid");
+                    return "Invalid";
+                }
             }
-            else
+            catch (NullReferenceException)
             {
-                Console.WriteLine("mobile number not valid");
-                return "Invalid";
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.NULL_INPUT, "Mobile Number should not be null");
             }
+
         }
         public string ValidatePassword(string pw)
         {
-            if (Regex.IsMatch(pw, Password))
+            try
             {
-                Console.WriteLine("Password is valid");
-                return "Valid";
+                if (pw.Equals(string.Empty))
+                {
+                    throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.EMPTY_INPUT, "Password should not be empty");
+                }
+                if (Regex.IsMatch(pw, Password))
+                {
+                    Console.WriteLine("Password is valid");
+                    return "Valid";
+                }
+                else
+                {
+                    Console.WriteLine("Password not valid");
+                    return "Invalid";
+                }
             }
-            else
+            catch (NullReferenceException)
             {
-                Console.WriteLine("Password not valid");
-                return "Invalid";
+                throw new UserRegistrationCustomException(UserRegistrationCustomException.ExceptionType.NULL_INPUT, "Password should not be null");
             }
         }
     }
