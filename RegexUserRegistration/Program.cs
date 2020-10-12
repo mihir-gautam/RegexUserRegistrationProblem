@@ -10,19 +10,19 @@ namespace RegexUserRegistration
             Patterns pattern = new Patterns();
             Console.WriteLine("Enter the first name");
             string fname = Console.ReadLine();
-            pattern.validateName(fname);
+            pattern.ValidateName(fname);
             Console.WriteLine("Enter the Last name");
             string lastName = Console.ReadLine();
-            pattern.validateName(lastName);
+            pattern.ValidateName(lastName);
             Console.WriteLine("Enter the the email id");
             string email = Console.ReadLine();
-            pattern.validateEmail(email);
+            pattern.ValidateEmail(email);
             Console.WriteLine("Enter the the mobile num with country code");
             string mob = Console.ReadLine();
-            pattern.validateMobile(mob);
+            pattern.ValidateMobile(mob);
             Console.WriteLine("Enter the password (should contain 8 or more characters)");
             string password = Console.ReadLine();
-            pattern.validatePassword(password);
+            pattern.ValidatePassword(password);
         }
     }
 }
